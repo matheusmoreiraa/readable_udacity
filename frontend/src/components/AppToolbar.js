@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
+import {Link} from 'react-router-dom'
 import {
   ASCENDING_ORDER,
   DESCENDING_ORDER 
@@ -15,7 +16,7 @@ const AppToolbar = ({ categories, filter, filterFunc, filterTitle, sort, changeO
   this.changeOrderFunc = changeOrderFunc;
 
   const onCategoryFilterChanged = (event, index, value) => {
-    this.filterFunction(value);
+    this.props.history.push(`/${e.target.value}`);
   }
 
   const onSortOrderChanged = (event, index, value) => {
