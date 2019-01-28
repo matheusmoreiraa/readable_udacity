@@ -9,6 +9,7 @@ import {
 } from '../actions/types'
 
 import history from '../utils/history'
+import {withRouter} from 'react-router'
 
 const AppToolbar = ({ categories, filter, filterFunc, filterTitle, sort, changeOrderFunc, sortingTitle }) => {
 
@@ -17,7 +18,7 @@ const AppToolbar = ({ categories, filter, filterFunc, filterTitle, sort, changeO
   this.changeOrderFunc = changeOrderFunc;
 
   const onCategoryFilterChanged = (event, index, value) => {
-    history.push(`/category:${event.target.value}`);
+    history.push(`/${value}`);
   }
 
   const onSortOrderChanged = (event, index, value) => {
@@ -77,7 +78,7 @@ AppToolbar.propTypes = {
   sortingTitle: PropTypes.string.isRequired
 }
 
-export default AppToolbar;
+export default withRouter(AppToolbar);
 
 
 
